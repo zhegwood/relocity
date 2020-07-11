@@ -1,0 +1,14 @@
+.vagrant
+Vagrantfile
+vendor/
+node_modules/
+npm-debug.log
+.phpunit.result.cache
+public/storage
+public/hot
+storage/*.key
+.env.*.php
+.env.php
+.env
+Homestead.yaml
+Homestead.json
