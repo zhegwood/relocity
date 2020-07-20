@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 
 class BookingController extends Controller
 {
-    public function busy(Request $reuqest)
+    public function busy(Request $request)
     {
         $startDate = Carbon::now()->startOfDay();
         $endDate = Carbon::now()->endOfDay();
@@ -16,11 +16,10 @@ class BookingController extends Controller
         return $busyTimes;
     }
 
-    public function free(Request $reuqest)
+    public function free(Request $request)
     {
-        $timeZone = 'America/New_York';
-        $startDate = Carbon::now()->setTimezone($timeZone);
-        $endDate = Carbon::now()->setTimezone($timeZone);
+        $startDate = Carbon::now();
+        $endDate = Carbon::now();
         $freeTimes = CalendarService::getCalendarFreeTimes($startDate, $endDate);
         return $freeTimes;
     }
