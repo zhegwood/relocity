@@ -56,9 +56,11 @@ class CalendarService
             if (in_array($date->hour, self::$busy_hours)) {
                 continue;
             }
+            $date->tz('America/New_York');
+            $format = 'D M d Y H:i:s O'; //js readable date format
             $dates[] = [
-                'start_date' => $date,
-                'end_date' => $date->copy()->addHour(),
+                'start_date' => $date->format($format),
+                'end_date' => $date->copy()->addHour()->format($format),
             ];
         }
         return $dates;
